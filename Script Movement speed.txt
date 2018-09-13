@@ -1,0 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class moveplayer : MonoBehaviour {
+    private Rigidbody2D reg;
+    public float speed = 10f;
+    public bool standing;
+    public float speedslow = 0.3f;
+    public float ForceY;
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        reg = GetComponent<Rigidbody2D>();
+       
+
+    
+            
+
+
+        var NewX = 0f;
+        var NewY = 0f;
+        if (Input.GetKey("right"))
+        {
+            NewX = speed;
+            transform.localScale = new Vector3(1, 1, 1);
+
+        }
+        if (Input.GetKey("left"))
+        {
+            NewX = -speed;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (Input.GetKey("up"))
+        {
+            NewY = speed;
+            
+        }
+        if (Input.GetKey("down"))
+        {
+            NewY = -speed;
+
+        }
+
+
+        reg.AddForce(new Vector2(NewX, NewY));
+
+	}
+}
